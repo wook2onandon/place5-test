@@ -1,0 +1,31 @@
+.container {
+  padding: 0 0 0 22.625rem;
+  width: 100%;
+}
+
+.menuWrap {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  padding: 1.75rem 1.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.menu {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.2px;
+  color: #aaaaaa;
+  padding: 0.75rem 0;
+  cursor: pointer;
+}
+
+.menu.on {
+  color: #242424;
+  border-bottom: 2px solid #444444;
+}

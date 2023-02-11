@@ -1,0 +1,55 @@
+.container {
+  position: fixed;
+  top: 8.4375rem;
+  right: 0;
+  height: 100%;
+  z-index: 9999;
+}
+
+.wrap {
+  background: #f8f8f8;
+  width: 100%;
+  height: 100%;
+  padding: 1.75rem 0.9375rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.listWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.sideList {
+  min-width: 6.25rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  letter-spacing: -0.2px;
+  color: #5d5d5d;
+  cursor: pointer;
+}
+
+.active {
+  color: #14dbba;
+}
+
+.chatWrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chatTitle {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  letter-spacing: -0.2px;
+  color: #444444;
+}
