@@ -34,6 +34,7 @@ const TeacherInfo = ({ data }: teachInfoWrapType) => {
   };
 
   //찜하기 버튼 function
+  //api에 like 관련된 정보가 없어서 localStorage를 사용하여 사용자를 찜했는지 안했는지 분기처리
   const handleLikeBtn = () => {
     if (window.localStorage.getItem(`${data.userId}`) === 'true') {
       window.localStorage.setItem(`${data.userId}`, 'false');
