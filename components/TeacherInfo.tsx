@@ -130,7 +130,7 @@ const TeacherInfo = ({ data }: teachInfoWrapType) => {
         <div className={styles.specialWrap}>
           <Image src="/images/book.png" alt="logo" width={16} height={16} />
           <h4 className={styles.special}>
-            {data.specialSubjects.length > 1
+            {data.specialSubjects && data.specialSubjects.length > 1
               ? data.specialSubjects.join(', ')
               : data.specialSubjects}
           </h4>

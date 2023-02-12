@@ -50,12 +50,14 @@ const ClassInfo = ({ detail }: teacherDetailWrap) => {
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>전문 과목</h4>
           <div className={styles.itemDetail}>
-            {detail.specialSubjects.join(', ')}
+            {detail.specialSubjects && detail.specialSubjects.join(', ')}
           </div>
         </div>
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>전체 과목</h4>
-          <div className={styles.itemDetail}>{detail.subjects.join(', ')}</div>
+          <div className={styles.itemDetail}>
+            {detail.subjects && detail.subjects.join(', ')}
+          </div>
         </div>
       </div>
       <div className={styles.itemContainer}>
@@ -71,7 +73,7 @@ const ClassInfo = ({ detail }: teacherDetailWrap) => {
       </div>
       <div className={styles.itemContainer}>
         <h3 className={styles.itemTitle}>수업 가능 일정</h3>
-        {detail.schedule.includes('/') ? (
+        {detail.schedule && detail.schedule.includes('/') ? (
           detail.schedule.split('/').map((schedule, idx) => (
             <p
               key={idx}
@@ -87,7 +89,7 @@ const ClassInfo = ({ detail }: teacherDetailWrap) => {
       <InfomationBox title="시범 과외" text={detail.demo} line={true} />
       <InfomationBox
         title="수업 가능 지역"
-        text={detail.area.join(', ')}
+        text={detail.area && detail.area.join(', ')}
         line={true}
       />
       <InfomationBox

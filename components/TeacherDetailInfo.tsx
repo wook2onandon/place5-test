@@ -78,45 +78,61 @@ const TecherDetailInfo = ({ detail, data }: teacherDetailWrap) => {
         </div>
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>학교</h4>
-          <div className={styles.itemDetail}>{detail.univInfo.univ}</div>
+          <div className={styles.itemDetail}>
+            {detail.univInfo && detail.univInfo.univ}
+          </div>
         </div>
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>졸업여부</h4>
           <div className={styles.itemDetail}>
-            {detail.univInfo.isGraduated ? '졸업' : '재학중'}
+            {detail.univInfo && detail.univInfo.isGraduated ? '졸업' : '재학중'}
           </div>
         </div>
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>학과</h4>
-          <div className={styles.itemDetail}>{detail.univInfo.department}</div>
+          <div className={styles.itemDetail}>
+            {detail.univInfo && detail.univInfo.department}
+          </div>
         </div>
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>학번</h4>
-          <div className={styles.itemDetail}>{detail.univInfo.grade}</div>
+          <div className={styles.itemDetail}>
+            {detail.univInfo && detail.univInfo.grade}
+          </div>
         </div>
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>캠퍼스</h4>
-          <div className={styles.itemDetail}>{detail.univInfo.campus}</div>
+          <div className={styles.itemDetail}>
+            {detail.univInfo && detail.univInfo.campus}
+          </div>
         </div>
       </div>
       <InfomationBox
         title="성격"
-        text={`저는 ${detail.personalities.join(', ')} 성격입니다.`}
+        text={`저는 ${
+          detail.personalities && detail.personalities.join(', ')
+        } 성격입니다.`}
         line={true}
       />
       <div className={styles.itemContainer}>
         <h3 className={styles.itemTitle}>학교 정보</h3>
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>중학교</h4>
-          <div className={styles.itemDetail}>{detail.schoolInfo.middle}</div>
+          <div className={styles.itemDetail}>
+            {detail.schoolInfo && detail.schoolInfo.middle}
+          </div>
         </div>
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>고등학교</h4>
-          <div className={styles.itemDetail}>{detail.schoolInfo.high}</div>
+          <div className={styles.itemDetail}>
+            {detail.schoolInfo && detail.schoolInfo.high}
+          </div>
         </div>
         <div className={styles.itemDetailWrap}>
           <h4 className={styles.itemDetailTitle}>고교 성적</h4>
-          <div className={styles.itemDetail}>{detail.schoolInfo.myGrade}</div>
+          <div className={styles.itemDetail}>
+            {detail.schoolInfo && detail.schoolInfo.myGrade}
+          </div>
         </div>
         <div className={styles.itemDetailImageWrap}>
           <Image

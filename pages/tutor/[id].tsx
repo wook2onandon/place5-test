@@ -63,12 +63,11 @@ type SchoolInfo = {
 };
 
 const tutor = ({ data, detail }: teachInfoWrapType) => {
-  // const tutor = (data: teachInfoWrapType, detail: teacherDetailWrap) => {
   const router = useRouter();
-  const { id } = router.query;
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
+
   return (
     <>
       <HeadInfo title="김과외 | 선생님찾기" />
@@ -80,14 +79,21 @@ const tutor = ({ data, detail }: teachInfoWrapType) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context: any) {
+  const { id } = context.query;
   const [dataRes, detailRes] = await Promise.all([
-    fetch(`http://61.97.189.192:8089/user/getuser?userId=kimtest`),
-    fetch(`http://61.97.189.192:8089/user/getuserinfo?userId=kimtest`),
+    fetch(`http://61.97.189.192:8089/user/getuser?userId=${id}`),
+    fetch(`http://61.97.189.192:8089/user/getuserinfo?userId=${id}`),
   ]);
   const [data, detail] = await Promise.all([dataRes.json(), detailRes.json()]);
-
-  return { props: { data, detail } };
+  if (data.userId === undefined || detail.userId === undefined) {
+    // <- Data Fetching Error Handling
+    return {
+      notFound: true,
+    };
+  } else {
+    return { props: { data, detail } };
+  }
 }
 
 export default tutor;
