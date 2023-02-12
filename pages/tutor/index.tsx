@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../styles/tutor.module.css';
 import HeadInfo from '@/components/HeadInfo';
+import { tutor } from '@/data/tutor';
 
 const index = () => {
   return (
@@ -10,17 +11,21 @@ const index = () => {
       <div className={styles.container}>
         <div>선생님 목록</div>
         <ul className={styles.wrap}>
-          <li>
-            <Link href="/tutor/kimtest">
-              <Image
-                src="/images/user.png"
-                alt="logo"
-                width={152}
-                height={152}
-              />
-            </Link>
-            <div>kimtest</div>
-          </li>
+          {tutor.map((tutor) => {
+            return (
+              <li key={tutor.id}>
+                <Link href={`/tutor/${tutor.userId}`}>
+                  <Image
+                    src={tutor.imageUrl}
+                    alt="logo"
+                    width={152}
+                    height={152}
+                  />
+                </Link>
+                <div>{tutor.userId}</div>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>

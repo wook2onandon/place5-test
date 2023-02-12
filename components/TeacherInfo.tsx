@@ -35,12 +35,12 @@ const TeacherInfo = ({ data }: teachInfoWrapType) => {
 
   //찜하기 버튼 function
   const handleLikeBtn = () => {
-    if (window.localStorage.getItem('like') === 'true') {
-      window.localStorage.setItem('like', 'false');
+    if (window.localStorage.getItem(`${data.userId}`) === 'true') {
+      window.localStorage.setItem(`${data.userId}`, 'false');
       setIsLike(false);
       setLikePopUp(false);
     } else {
-      window.localStorage.setItem('like', 'true');
+      window.localStorage.setItem(`${data.userId}`, 'true');
       setIsLike(true);
       setLikePopUp(true);
     }
@@ -48,7 +48,7 @@ const TeacherInfo = ({ data }: teachInfoWrapType) => {
 
   //페이지 접속시 localStorage를 탐색하여 찜이 되어있는지 확인하는 logic
   useEffect(() => {
-    if (window.localStorage.getItem('like') === 'true') {
+    if (window.localStorage.getItem(`${data.userId}`) === 'true') {
       setIsLike(true);
     } else {
       setIsLike(false);
