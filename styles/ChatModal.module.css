@@ -8,12 +8,14 @@
   border-left: 4px solid #f0f0f0;
   height: calc(100% - 140px);
   transition: all 0.5s;
+  -webkit-transition: all 0.5s;
   z-index: -1;
 }
 
 .activeModal {
   transform: translate(-100%, 0);
   transition: all 0.5s;
+  -webkit-transition: all 0.5s;
 }
 
 .closeBtn {

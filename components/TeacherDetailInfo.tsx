@@ -38,10 +38,12 @@ type SchoolInfo = {
 const TecherDetailInfo = ({ detail, data }: teacherDetailWrap) => {
   const [isActiveBalloon, setIsActiveBalloon] = useState<boolean>(false);
 
+  //인증버튼을 클릭시 말풍선을 보여주는 function
   const hadleBalloon = () => {
     setIsActiveBalloon(true);
   };
 
+  //인증버튼을 클릭시 말풍선을 보여준 뒤 3초후에 없애주는 logic
   useEffect(() => {
     if (isActiveBalloon === true) {
       const animateDelay = setTimeout(() => {

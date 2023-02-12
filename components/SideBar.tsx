@@ -3,6 +3,7 @@ import Image from 'next/image';
 import ChatModal from './ChatModal';
 import { useState } from 'react';
 
+//side bar의 menu
 const sideBarMenu = [
   '과외선생님',
   '과외학생',
@@ -16,6 +17,7 @@ const SideBar = () => {
   const [sideTabNum, setSideTabNum] = useState<null | number>(null);
   const [isTabActive, setIsTabActive] = useState<boolean>(false);
 
+  //side bar의 menu클릭시 chatModal을 열어주고 닫아주는 function
   const handleChatModal = (idx: number) => {
     if (!isTabActive) {
       setIsTabActive(true);
@@ -31,6 +33,7 @@ const SideBar = () => {
     }
   };
 
+  //x버튼을 누를 경우 chatModal을 닫아주는 function
   const handleModalClose = () => {
     setIsTabActive(false);
     setSideTabNum(null);

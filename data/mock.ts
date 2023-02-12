@@ -10,7 +10,7 @@ export const mockData = [
     subject: ['영어', '수능영어', '고등영어'],
     userId: 'kimtest',
     time: '2023-02-09T15:00:07Z',
-    read: 0,
+    read: 1,
   },
   {
     id: 1,

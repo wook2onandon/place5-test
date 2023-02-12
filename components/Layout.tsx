@@ -6,6 +6,7 @@ type ComponentProps = {
   children: ReactNode;
 };
 
+//기본적인 layout component
 const Layout = ({ children }: ComponentProps) => {
   return (
     <>

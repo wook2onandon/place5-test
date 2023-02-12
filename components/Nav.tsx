@@ -3,7 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { handleAlert } from '@/util/alert';
 
+//nav메뉴
 const navMenu = [
   {
     title: '선생님 목록',
@@ -34,12 +36,14 @@ const navMenu = [
 const Nav = () => {
   const [isSelected, setIsSelected] = useState<null | number>(null);
 
+  //nav bar의 메뉴 선택시 index값을 받아오는 function
   const handleSelectedMenu = (idx: number) => {
     setIsSelected(idx);
   };
 
   const router = useRouter();
 
+  //url의 pathname을 가져와 선생님 목록일 경우만 active상태로 만들어 주는 logic.
   useEffect(() => {
     if (router.pathname === '/tutor' || router.pathname === '/tutor/[id]') {
       setIsSelected(0);
@@ -71,11 +75,26 @@ const Nav = () => {
           />
         </div>
         <ul className={styles.userInfoWrap}>
-          <li className={styles.userInfoBtn}>로그아웃</li>
+          <li
+            className={styles.userInfoBtn}
+            onClick={() => handleAlert('로그아웃하였습니다.')}
+          >
+            로그아웃
+          </li>
           <div className={styles.dot} />
-          <li className={styles.userInfoBtn}>내 정보</li>
+          <li
+            className={styles.userInfoBtn}
+            onClick={() => handleAlert('내정보를 선택했습니다.')}
+          >
+            내 정보
+          </li>
           <div className={styles.dot} />
-          <li className={styles.userInfoBtn}>고객센터</li>
+          <li
+            className={styles.userInfoBtn}
+            onClick={() => handleAlert('고객센터를 선택했습니다.')}
+          >
+            고객센터
+          </li>
         </ul>
       </div>
       <ul className={styles.downWrap}>

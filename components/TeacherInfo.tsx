@@ -1,3 +1,4 @@
+import { handleAlert } from '@/util/alert';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from '../styles/TeacherInfo.module.css';
@@ -27,12 +28,12 @@ const TeacherInfo = ({ data }: teachInfoWrapType) => {
   const [likePopUp, setLikePopUp] = useState<boolean>(false);
   const [clickImpossible, setClickImpossible] = useState<boolean>(false);
 
-  //인증버튼 말풍선기능
+  //인증버튼 말풍선 function
   const hadleBalloon = () => {
     setIsActiveBalloon(true);
   };
 
-  //찜하기 버튼기능
+  //찜하기 버튼 function
   const handleLikeBtn = () => {
     if (window.localStorage.getItem('like') === 'true') {
       window.localStorage.setItem('like', 'false');
@@ -45,7 +46,7 @@ const TeacherInfo = ({ data }: teachInfoWrapType) => {
     }
   };
 
-  //페이지 접속시 localStorage를 탐색하여 찜이 되어있는지 확인
+  //페이지 접속시 localStorage를 탐색하여 찜이 되어있는지 확인하는 logic
   useEffect(() => {
     if (window.localStorage.getItem('like') === 'true') {
       setIsLike(true);
@@ -54,7 +55,7 @@ const TeacherInfo = ({ data }: teachInfoWrapType) => {
     }
   }, []);
 
-  //찜하기 클릭시 메세지팝업 띄우고 3초뒤 사라지게 하기
+  //찜하기 클릭시 메세지팝업 띄우고 3초뒤 사라지게 하는 logic
   useEffect(() => {
     if (likePopUp === true) {
       setClickImpossible(true);
@@ -177,11 +178,28 @@ const TeacherInfo = ({ data }: teachInfoWrapType) => {
             {isLike ? '찜 취소' : '찜 하기'}
           </span>
         </div>
-        <div className={styles.consulting}>과외 상담하기</div>
+        <div
+          className={styles.consulting}
+          onClick={() => handleAlert('과외 상담하기를 선택하셨습니다.')}
+        >
+          과외 상담하기
+        </div>
         <ul className={styles.helpWrap}>
-          <li className={styles.helpTitle}>차단</li>
+          <li
+            className={styles.helpTitle}
+            onClick={() => {
+              handleAlert('차단했습니다.');
+            }}
+          >
+            차단
+          </li>
           <li className={styles.helpTitle}>|</li>
-          <li className={styles.helpTitle}>신고</li>
+          <li
+            className={styles.helpTitle}
+            onClick={() => handleAlert('신고하였습니다.')}
+          >
+            신고
+          </li>
         </ul>
       </div>
       {likePopUp && (

@@ -4,6 +4,7 @@ import { SetStateAction, useEffect, useState } from 'react';
 import { mockData } from '@/data/mock';
 import { formatAgo } from '@/util/date';
 import Link from 'next/link';
+import { handleAlert } from '@/util/alert';
 
 type chatDetailType = {
   id: number;
@@ -23,6 +24,7 @@ type modalCloseType = {
   isTabActive: boolean;
 };
 
+//첫번째 select box menu
 const subjectsGrade = [
   '중등수학',
   '고등수학',
@@ -31,8 +33,10 @@ const subjectsGrade = [
   '고등영어',
 ];
 
+//두번째 select box menu
 const subjects = ['과목 전체', '수학', '영어', '언어', '사탐', '과탐'];
 
+//dropdown menu
 const topMenus = ['목록 편집', '차단계정 목록', '채팅 알림끄기'];
 
 const ChatModal = ({ modalClose, isTabActive }: modalCloseType) => {
@@ -40,26 +44,26 @@ const ChatModal = ({ modalClose, isTabActive }: modalCloseType) => {
   const [selectedSubject, setSelectedSubject] = useState<string>('');
   const [activeTopMenu, setActiveTopMenu] = useState<boolean>(false);
 
+  //첫번째 select box의 function
   const handleSelectGrade = (e: {
     target: { value: SetStateAction<string> };
   }) => {
     setSelectedGrade(e.target.value);
   };
 
+  //두번째 select box의 function
   const handleSelectSubject = (e: {
     target: { value: SetStateAction<string> };
   }) => {
     setSelectedSubject(e.target.value);
   };
 
+  //dropdown의 function
   const handleTopMenu = () => {
     setActiveTopMenu((status: boolean) => !status);
   };
 
-  const handleSelectTopMenu = (menu: string) => {
-    alert(menu);
-  };
-
+  //chatModal이 닫힐때 dropdown메뉴 닫아주기
   useEffect(() => {
     if (!isTabActive) {
       setActiveTopMenu(false);
@@ -86,7 +90,7 @@ const ChatModal = ({ modalClose, isTabActive }: modalCloseType) => {
         {activeTopMenu && (
           <ul className={styles.titleMenuList}>
             {topMenus.map((menu, idx) => (
-              <li key={idx} onClick={() => handleSelectTopMenu(menu)}>
+              <li key={idx} onClick={() => handleAlert(menu)}>
                 {menu}
               </li>
             ))}

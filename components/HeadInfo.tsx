@@ -4,6 +4,7 @@ type HeadInfomation = {
   title: string;
 };
 
+//Head태그의 title을 page별로 변경해줄 수 있는 component
 const HeadInfo = ({ title }: HeadInfomation) => {
   return (
     <Head>

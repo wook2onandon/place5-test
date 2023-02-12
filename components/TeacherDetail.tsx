@@ -50,6 +50,7 @@ type SchoolInfo = {
   myGrade: string; // 고교 성적
 };
 
+//teacher detail의 menu
 const TeacherDetailMenu = [
   '수업 안내',
   '선생님 정보',
@@ -60,9 +61,12 @@ const TeacherDetailMenu = [
 
 const TeacherDetail = ({ detail, data }: teacherDetailWrap) => {
   const [tabNum, setTabNum] = useState<Number>(0);
+
+  //teacher detail의 menu를 클릭시 index값을 가져오는 function
   const handleTabNum = (idx: number) => {
     setTabNum(idx);
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.wrap}>

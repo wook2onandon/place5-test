@@ -35,7 +35,6 @@ const ClassInfo = ({ detail }: teacherDetailWrap) => {
             alt="logo"
             width={20}
             height={20}
-            // className={styles.userIcon}
           />
         </div>
         <Image
@@ -43,7 +42,6 @@ const ClassInfo = ({ detail }: teacherDetailWrap) => {
           alt="logo"
           width={92}
           height={92}
-          // className={styles.userIcon}
         />
       </div>
       <InfomationBox title="과외방식" text={detail.method} line={true} />
