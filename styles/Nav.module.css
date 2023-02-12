@@ -26,6 +26,11 @@
   cursor: pointer;
 }
 
+.titleWrap {
+  display: flex;
+  align-items: center;
+}
+
 .title {
   margin: 0 0.5rem 0;
   font-style: normal;

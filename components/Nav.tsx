@@ -65,14 +65,19 @@ const Nav = () => {
               className={styles.logo}
             />
           </Link>
-          <div className={styles.title}>선생님 찾기</div>
-          <Image
-            src="/images/open.png"
-            alt="logo"
-            width={20}
-            height={20}
-            className={styles.titleArrow}
-          />
+          <div
+            className={styles.titleWrap}
+            onClick={() => handleAlert('카테고리선택을 누르셨습니다.')}
+          >
+            <div className={styles.title}>선생님 찾기</div>
+            <Image
+              src="/images/open.png"
+              alt="logo"
+              width={20}
+              height={20}
+              className={styles.titleArrow}
+            />
+          </div>
         </div>
         <ul className={styles.userInfoWrap}>
           <li
